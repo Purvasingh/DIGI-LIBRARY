@@ -1,0 +1,69 @@
+{% load staticfiles%}
+{% url 'home' as home_url %}
+{% url 'login' as login_url %}
+
+<html>
+<head>
+    <title>Digital Library</title>
+      {% include 'snippets/cs.html' %}
+          </head>
+<body>
+
+  {% include 'snippets/navbar.html' %}
+  {% block upload %}{% endblock %}
+    {% if request.path == home_url %}
+    <div class="container mt-3 ">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+<ul class="carousel-indicators">
+  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+  <li data-target="#myCarousel" data-slide-to="1"></li>
+  <li data-target="#myCarousel" data-slide-to="2"></li>
+</ul>
+
+<div class="carousel-inner">
+  <div class="carousel-item active">
+    <img src="{% static 'images/giammarco-boscaro-380903-unsplash.jpg' %}" alt="anu1" height="500" width="800">
+  </div>
+  <div class="carousel-item">
+    <img src="{% static 'images/aleks-dorohovich-26-unsplash.jpg' %}" alt="anu2" height="500" width="800">
+  </div>
+  <div class="carousel-item">
+    <img src="{% static 'images/priscilla-du-preez-623040-unsplash.jpg'%}" alt="anu3" height="500" width="800">
+  </div>
+</div>
+
+<a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+  <span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#myCarousel" data-slide="next">
+  <span class="carousel-control-next-icon"></span>
+</a>
+</div>
+</div>
+<br>
+<br>
+  <div class="wrapper">
+<div class="dropdown text-center">
+  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <b>LOGIN</b>
+
+  </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{{ login_url }}">Student</a>
+    <a class="dropdown-item" href="{{ login_url }}">Staff</a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    {% endif %}
+    {% if request.path == login_url %}
+       {% block content %}{% endblock %}
+    {% endif %}
+
+
+    {% include 'snippets/js.html' %}
+    </body>
+</html>

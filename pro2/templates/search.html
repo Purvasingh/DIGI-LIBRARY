@@ -1,0 +1,21 @@
+<h1>Search Page</h1>
+
+
+<br/>
+
+{% if results %}
+<h1>Results for <b>{{ request.GET.q }}</b></h1>
+<br/><br/>
+
+{% for result in results %}
+
+{{result.description}}
+<br/>
+<a href="{{ result.document.url }}">Book</a>
+
+<br/>
+
+{% endfor %}
+{% else %}
+No search results for this query
+{% endif %}

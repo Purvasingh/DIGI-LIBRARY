@@ -1,0 +1,33 @@
+
+{% load staticfiles%}
+<html>
+{% include 'snippets/cs.html'%}
+<body>
+  {% include 'snippets/navbar.html' %}
+<link rel='stylesheet' href='{% static 'css/login.css'%}'>
+<div class="container">
+<div class="inner-wrapper">
+  <div class="row">
+<form method="POST" action="{% url 'login' %}"> {% csrf_token %}
+  <div class="form-group col-sm-30">
+      <div  class="col-sm-30>
+  <label class="text-primary"><b>Signup</b></label><br/>
+    <label class="text-primary">Username</label>
+  {{ form.username }}
+</div>
+<div class="form-group ">
+<div class="col-sm-50">
+<label class="text-primary">Password</label>
+{{ form.password }}
+</div>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% include 'snippets/js.html'%}
+</body>
+</html>
