@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from .forms import LoginForm
+from role.models import Role
 
 def login_page(request):
     form = LoginForm(request.POST or None)
@@ -10,7 +11,7 @@ def login_page(request):
         user= authenticate(username=username,password=password)
         if user is not None:
             login(request,user)
-            redirect('login/')
+            return redirect('home')
         else:
             print("error")
     context= {
@@ -19,5 +20,20 @@ def login_page(request):
     return render(request,"login.html",context)
 
 def home_page(request):
+    qs=None
+    try:
+        if request.user.is_authenticated:
+            qs=Role.objects.get(user=request.user)
+    except Role.DoesNotExist:
+        qs=None
+    context={
+        "qs" : qs
+    }
+    return render(request,"base.html",context)
 
-    return render(request,"base.html",{})
+def logout_page(request):
+    logout(request)
+    return redirect("login")
+
+def contact_page(request):
+    return render(request,"contact.html",context)

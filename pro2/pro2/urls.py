@@ -17,17 +17,21 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
 from app2.views import model_form_upload
-from .views import login_page,home_page
+from .views import login_page,home_page, logout_page,contact_page
 from django.conf import settings
 from django.conf.urls.static import static
+from subjects.views import CseView, EceView
 
 urlpatterns = [
     url(r'^$',home_page,name="home"),
-    url(r'^upload/$',model_form_upload,name='home1'),
+    url(r'^upload/$',model_form_upload,name='upload'),
     url(r'^login/$',login_page,name="login"),
     url(r'^admin/', admin.site.urls),
     url(r'^search/', include('search.urls', namespace='search')),
-
+    url(r'^logout/$',logout_page,name="logout"),
+    url(r'^cse/$',CseView,name="cse"),
+    url(r'^ece/$',EceView,name="ece"),
+    url(r'^contact/$',contact_page,name="contact"),
 ]
 
 if settings.DEBUG:

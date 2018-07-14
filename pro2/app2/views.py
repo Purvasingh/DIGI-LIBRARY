@@ -8,7 +8,7 @@ def model_form_upload(request):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home1')
+            return redirect('upload')
     else:
         form = DocumentForm()
     return render(request, "model_form_upload.html", {

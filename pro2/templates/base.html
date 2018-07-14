@@ -1,6 +1,6 @@
 {% load staticfiles%}
 {% url 'home' as home_url %}
-{% url 'login' as login_url %}
+{% url 'login' as login_url%}
 
 <html>
 <head>
@@ -9,7 +9,8 @@
           </head>
 <body>
 
-  {% include 'snippets/navbar.html' %}
+  {% include 'snippets/navbar.html' with role=qs.rolename  %}
+
   {% block upload %}{% endblock %}
     {% if request.path == home_url %}
     <div class="container mt-3 ">
@@ -43,21 +44,6 @@
 </div>
 <br>
 <br>
-  <div class="wrapper">
-<div class="dropdown text-center">
-  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <b>LOGIN</b>
-
-  </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="{{ login_url }}">Student</a>
-    <a class="dropdown-item" href="{{ login_url }}">Staff</a>
-  </div>
-</div>
-
-</div>
-
-    </div>
     {% endif %}
     {% if request.path == login_url %}
        {% block content %}{% endblock %}
