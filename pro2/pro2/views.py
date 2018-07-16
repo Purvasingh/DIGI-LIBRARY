@@ -36,4 +36,4 @@ def logout_page(request):
     return redirect("login")
 
 def contact_page(request):
-    return render(request,"contact.html",context)
+    return render(request,"contact.html",{})
