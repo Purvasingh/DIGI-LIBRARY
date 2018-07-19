@@ -20,7 +20,7 @@ from app2.views import model_form_upload
 from .views import login_page,home_page, logout_page,contact_page
 from django.conf import settings
 from django.conf.urls.static import static
-from subjects.views import CseView, EceView
+from subjects.views import CseView, EceView, ITView
 
 urlpatterns = [
     url(r'^$',home_page,name="home"),
@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^logout/$',logout_page,name="logout"),
     url(r'^cse/$',CseView,name="cse"),
     url(r'^ece/$',EceView,name="ece"),
+    url(r'^it/$',ITView,name="it"),
     url(r'^contact/$',contact_page,name="contact"),
 ]
 

@@ -16,3 +16,10 @@ def EceView(request):
         "object_list" : qs
     }
     return render(request,"document_list.html",context)
+
+def ITView(request):
+    qs= Document.objects.filter(department="it")
+    context={
+        "object_list" : qs
+    }
+    return render(request,"document_list.html",context)
