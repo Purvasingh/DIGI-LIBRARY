@@ -17,10 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
 from app2.views import model_form_upload
-from .views import login_page,home_page, logout_page,contact_page
+from .views import login_page,home_page, logout_page,contact_page,dept
 from django.conf import settings
 from django.conf.urls.static import static
-from subjects.views import CseView, EceView, ITView
+from subjects.views import CseView, EceView, ITView, cse_watch,ece_watch,it_watch, read
 
 urlpatterns = [
     url(r'^$',home_page,name="home"),
@@ -32,6 +32,11 @@ urlpatterns = [
     url(r'^cse/$',CseView,name="cse"),
     url(r'^ece/$',EceView,name="ece"),
     url(r'^it/$',ITView,name="it"),
+    url(r'^cse_watch/$',cse_watch,name="cse_watch"),
+    url(r'^ece_watch/$',ece_watch,name="ece_watch"),
+    url(r'^it_watch/$',it_watch,name="it_watch"),
+    url(r'^read/$',read,name="read"),
+    url(r'^dept/$',dept,name="dept"),
     url(r'^contact/$',contact_page,name="contact"),
 ]
 

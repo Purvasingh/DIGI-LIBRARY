@@ -11,6 +11,8 @@ def login_page(request):
         user= authenticate(username=username,password=password)
         if user is not None:
             login(request,user)
+            role = Role.objects.get(user=user)
+            request.session['rolename'] = role.rolename
             return redirect('home')
         else:
             print("error")
@@ -20,16 +22,8 @@ def login_page(request):
     return render(request,"login.html",context)
 
 def home_page(request):
-    qs=None
-    try:
-        if request.user.is_authenticated:
-            qs=Role.objects.get(user=request.user)
-    except Role.DoesNotExist:
-        qs=None
-    context={
-        "qs" : qs
-    }
-    return render(request,"base.html",context)
+
+    return render(request,"base.html",{})
 
 def logout_page(request):
     logout(request)
@@ -37,3 +31,6 @@ def logout_page(request):
 
 def contact_page(request):
     return render(request,"contact.html",{})
+
+def dept(request):
+    return render(request,"dept.html",{})

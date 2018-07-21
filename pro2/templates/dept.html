@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block upload %}
+<div class="container">
+  <div class="btn-group">
+  <button class="btn btn-secondary btn-lg" type="button">
+    CSE
+  </button>
+  <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="{% url 'cse' %}">Read</a>
+    <a class="dropdown-item" href="{% url 'cse_watch' %}">Watch</a>
+
+  </div>
+</div>
+<div class="btn-group">
+<button class="btn btn-secondary btn-lg" type="button">
+  ECE
+</button>
+<button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <span class="sr-only">Toggle Dropdown</span>
+</button>
+<div class="dropdown-menu">
+  <a class="dropdown-item" href="{% url 'ece' %}">Read</a>
+  <a class="dropdown-item" href="{% url 'ece_watch' %}">Watch</a>
+
+</div>
+</div>
+<div class="btn-group">
+<button class="btn btn-secondary btn-lg" type="button">
+  IT
+</button>
+<button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <span class="sr-only">Toggle Dropdown</span>
+</button>
+<div class="dropdown-menu">
+  <a class="dropdown-item" href="{% url 'it' %}">Read</a>
+  <a class="dropdown-item" href="{% url 'it_watch' %}">Watch</a>
+
+</div>
+</div>
+</div>
+
+
+{% endblock %}

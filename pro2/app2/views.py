@@ -5,7 +5,7 @@ from pro2.forms import DocumentForm
 # Create your views here.
 def model_form_upload(request):
     if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
+        form = DocumentForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             form.save()
             return redirect('upload')
