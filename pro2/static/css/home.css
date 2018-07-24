@@ -1,5 +1,6 @@
-body,html{
-  background-color: rgba(128, 128, 128, 0.5);
+body{
+  background-color: #ced4da;
+
 }
 .carousel-inner img{
 width: 100%;
@@ -17,7 +18,7 @@ margin-left: 90px;
     z-index: 10;
     padding-top: 20px;
     padding-bottom: 20px;
-    color: #4ac7b1;
+    color: #ff6d01sss;
     font-size: 20px;
     text-align: center;
 }

@@ -11,6 +11,10 @@
 <style type="text/css">
     body {
 		font-family: 'Varela Round', sans-serif;
+  background-image: url( "{% static 'images/lib1.jpg' %}");
+  background-repeat: no-repeat;
+  background-size: 1500px 1000px;
+
 	}
 	.modal-login {
 		color: #636363;
@@ -102,7 +106,7 @@
 					<img src="{% static 'images/account-512.png' %}" alt="Avatar">
 				</div>
 				<h4 class="modal-title">Login</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              
 			</div>
 			<div class="modal-body">
 				<form action="{% url 'login' %}" method="post">{% csrf_token %}

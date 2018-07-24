@@ -3,24 +3,60 @@ from app2.models import Document
 from .models import Watch
 # Create your views here.
 
-def CseView(request):
-    qs= Document.objects.filter(department="cse")
+def Books(request):
+    next = request.GET.get("next")
+    print(next)
+    cse=None
+    ece= None
+    it =None
+    if next == "cse":
+        cse=Document.objects.filter(department="cse",type="books")
+    elif next == "ece":
+        ece=Document.objects.filter(department="ece",type="books")
+    elif next == "it":
+        it=Document.objects.filter(department="it",type="books")
     context={
-        "object_list" : qs
+        "cse" : cse,
+        "ece" : ece,
+        "it" : it
     }
     return render(request,"document_list.html",context)
 
-def EceView(request):
-    qs= Document.objects.filter(department="ece")
+def Articles(request):
+    next = request.GET.get("next")
+    print(next)
+    cse=None
+    ece= None
+    it =None
+    if next == "cse":
+        cse=Document.objects.filter(department="cse",type="articles")
+    elif next == "ece":
+        ece=Document.objects.filter(department="ece",type="articles")
+    elif next == "it":
+        it=Document.objects.filter(department="it",type="articles")
     context={
-        "object_list" : qs
+        "cse" : cse,
+        "ece" : ece,
+        "it" : it
     }
     return render(request,"document_list.html",context)
 
-def ITView(request):
-    qs= Document.objects.filter(department="it")
+def Papers(request):
+    next = request.GET.get("next")
+    print(next)
+    cse=None
+    ece= None
+    it =None
+    if next == "cse":
+        cse=Document.objects.filter(department="cse",type="papers")
+    elif next == "ece":
+        ece=Document.objects.filter(department="ece",type="papers")
+    elif next == "it":
+        it=Document.objects.filter(department="it",type="papers")
     context={
-        "object_list" : qs
+        "cse" : cse,
+        "ece" : ece,
+        "it" : it
     }
     return render(request,"document_list.html",context)
 

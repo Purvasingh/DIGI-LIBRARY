@@ -8,4 +8,4 @@ class LoginForm(forms.Form):
 class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
-        fields = ('description', 'document','department' )
+        fields = ('description', 'document','department','image','type' )

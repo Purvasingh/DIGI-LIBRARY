@@ -6,7 +6,9 @@ from pro2.forms import DocumentForm
 def model_form_upload(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST or None, request.FILES or None)
+        print("huehue")
         if form.is_valid():
+            print("lol")
             form.save()
             return redirect('upload')
     else:

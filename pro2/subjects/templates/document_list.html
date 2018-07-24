@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 {% block upload %}
+{% load staticfiles %}
+
+<style>
+body{
+  background-image: url("{% static 'images/book.jpg' %}"); no-repeat center center fixed;
+background-size: cover;
+}
+</style>
 <div class="container">
 <div class="row">
-{% if object_list %}
-{% for object in object_list %}
+
+{% for object in cse %}
 <div class="col">
 <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="{{ object.image.url }}" alt="Card image cap" width = "100px" height="250px">
@@ -11,7 +19,7 @@
     <h5 class="card-title">{{ object.description }}</h5>
     <p class="card-text">{{ object.department }}</p>
     <a href="{{ object.document.url }}" class="btn btn-primary">Read</a>
-    
+
   </div>
 </div>
 
@@ -22,8 +30,59 @@
           {% endif %}
 
 {% endfor %}
+
+
+{% for object in ece %}
+<div class="col">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{ object.image.url }}" alt="Card image cap" width="100px" height="250px">
+    <div class="card-body">
+      <h5 class="card-title">{{ object.description }}</h5>
+      <p class="card-text">{{ object.department }}</p>
+      <a href="{{ object.document.url }}" class="btn btn-primary">Read</a>
+
+    </div>
+  </div>
+
+  {% if forloop.counter|divisibleby:3 %}
+</div>
+</div>
+<div class="row mx-auto">
+  <div class="col-12">
+    <hr/>
+  </div>
+  {% else %}
+</div>
+{% endif %}
+ {% endfor %}
+
+
+ {% for object in it %}
+<div class="col">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{ object.image.url }}" alt="Card image cap" width="100px" height="250px">
+    <div class="card-body">
+      <h5 class="card-title">{{ object.description }}</h5>
+      <p class="card-text">{{ object.department }}</p>
+      <a href="{{ object.document.url }}" class="btn btn-primary">Read</a>
+
+    </div>
+  </div>
+
+  {% if forloop.counter|divisibleby:3 %}
+</div>
+</div>
+<div class="row mx-auto">
+  <div class="col-12">
+    <hr/>
+  </div>
+  {% else %}
+</div>
+{% endif %}
+{% endfor %}
+
 </div>
 
-{% endif %}
+
 </div>
 {% endblock %}

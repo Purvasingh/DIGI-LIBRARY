@@ -9,7 +9,7 @@ def searchposts(request):
         submitbutton= request.GET.get('submit')
 
         if query is not None:
-            lookups= Q(description__icontains=query)
+            lookups= Q(description__icontains=query) | Q(department__icontains=query)
 
             results= Document.objects.filter(lookups).distinct()
 

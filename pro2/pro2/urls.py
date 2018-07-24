@@ -20,7 +20,7 @@ from app2.views import model_form_upload
 from .views import login_page,home_page, logout_page,contact_page,dept
 from django.conf import settings
 from django.conf.urls.static import static
-from subjects.views import CseView, EceView, ITView, cse_watch,ece_watch,it_watch, read
+from subjects.views import Books, Articles, Papers, cse_watch,ece_watch,it_watch, read
 
 urlpatterns = [
     url(r'^$',home_page,name="home"),
@@ -29,9 +29,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^search/', include('search.urls', namespace='search')),
     url(r'^logout/$',logout_page,name="logout"),
-    url(r'^cse/$',CseView,name="cse"),
-    url(r'^ece/$',EceView,name="ece"),
-    url(r'^it/$',ITView,name="it"),
+    url(r'^books/$',Books,name="books"),
+    url(r'^articles/$',Articles,name="articles"),
+    url(r'^papers/$',Papers,name="papers"),
     url(r'^cse_watch/$',cse_watch,name="cse_watch"),
     url(r'^ece_watch/$',ece_watch,name="ece_watch"),
     url(r'^it_watch/$',it_watch,name="it_watch"),
@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^dept/$',dept,name="dept"),
     url(r'^contact/$',contact_page,name="contact"),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
