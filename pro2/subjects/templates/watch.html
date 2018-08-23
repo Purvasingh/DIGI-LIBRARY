@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 {% block upload %}
-
+{% load staticfiles %}
 <style>
 
 .container{
   font-size: 2rem;
   padding-top: 50px;
+  color: white;
+}
+
+body{
+  background-image: url("{% static 'images/black.gif' %}"); no-repeat center center fixed;
+  background-size: cover;
+
 
 }
+
 </style>
 <div class="container">
 <div class="row">

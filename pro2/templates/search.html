@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 {% block upload %}
+{% load staticfiles %}
+<style>
+body{
+  background-image: url("{% static 'images/black.gif' %}"); no-repeat center center fixed;
+background-size: cover;
 
+}
 
-
+</style>
 
 {% if results %}
-<h1>Results for <b>{{ request.GET.q }}</b></h1>
+<h1><font color="white">Results for  <b>{{ request.GET.q }}</b></font></h1>
 <br/><br/>
 <div class="container">
     <div class="row">
